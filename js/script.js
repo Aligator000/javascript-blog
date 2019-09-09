@@ -7,37 +7,35 @@ function titleClickHandler(event){
 
 /* [DONE] remove class 'active' from all article links  */
 
-const activeLinks = document.querySelectorAll('.titles a.active');
+  const activeLinks = document.querySelectorAll('.titles a.active');
 
-for(let activeLink of activeLinks){
-  activeLink.classList.remove('active');
-  console.log('active removed');
-}
+  for(let activeLink of activeLinks){
+    activeLink.classList.remove('active');
+    console.log('active removed');
+  }
 
 /* [DONE] add class 'active' to the clicked link */
-clickedElement.classList.add('active');
-console.log('clickedElement:', clickedElement);
+  clickedElement.classList.add('active');
+  console.log('clickedElement:', clickedElement);
   
 /* [DONE] remove class 'active' from all articles */
-const activeArticles = document.querySelectorAll('article.post.active');
+  const activeArticles = document.querySelectorAll('article.post.active');
 
-for (let activeArticle of activeArticles){
-  activeArticle.classList.remove('active');
-  console.log('active article removed');
-}
+  for (let activeArticle of activeArticles){
+    activeArticle.classList.remove('active');
+    console.log('active article removed');
+  }
 
 /* [DONE] get 'href' attribute from the clicked link */
-const articleSelector = clickedElement.getAttribute('href');
-console.log(articleSelector);
-
-/* [DONE] find the correct article using the selector (value of 'href' attribute) */
-const targetArticle = document.querySelector(articleSelector);
-console.log(targetArticle);
+  const articleSelector = clickedElement.getAttribute('href');
+  console.log(articleSelector);
+  /* [DONE] find the correct article using the selector (value of 'href' attribute) */
+  const targetArticle = document.querySelector(articleSelector);
+  console.log(targetArticle);
 
 /* [DONE] add class 'active' to the correct article */
-targetArticle.classList.add('active');
-console.log('targetArticle:', targetArticle);
-
+  targetArticle.classList.add('active');
+  console.log('targetArticle:', targetArticle);
 }  
 
 const optArticleSelector = '.post'; //article clas, for whole article
@@ -47,47 +45,43 @@ const optTitleListSelector = '.titles'; //ul class, for all links/
 function generateTitleLinks(){
 
   /* [DONE] remove contents of titleList */
-const titleList = document.querySelector(optTitleListSelector);
-titleList.innerHTML = '';
+  const titleList = document.querySelector(optTitleListSelector);
+  titleList.innerHTML = '';
 
   /* [DONE] for each article */
   /* [DONE] get the article id */
 
-const articles = document.querySelectorAll(optArticleSelector);
+  const articles = document.querySelectorAll(optArticleSelector);
 
-let html = '';
+  let html = '';
 
-for(let article of articles){
-  const articleId = article.getAttribute('id');
-  console.log(articleId);
+  for(let article of articles){
+    const articleId = article.getAttribute('id');
+    console.log(articleId);
   
   /* [DONE] find the title element */
   /* [DONE] get the title from the title element */
 
-const articleTitle = article.querySelector(optTitleSelector).innerHTML;
-console.log(articleTitle);
+    const articleTitle = article.querySelector(optTitleSelector).innerHTML;
+    console.log(articleTitle);
   
 
     /* [DONE] create HTML of the link */
-const linkHTML = '<li><a href="#' + articleId + '"><span>' + articleTitle + '</span></a></li>';
-console.log(linkHTML);
+    const linkHTML = '<li><a href="#' + articleId + '"><span>' + articleTitle + '</span></a></li>';
+    console.log(linkHTML);
 
-  
-titleList.insertAdjacentHTML('beforeend', linkHTML);
+    titleList.insertAdjacentHTML('beforeend', linkHTML);
 
-html = html + linkHTML;
+    html = html + linkHTML;
 
   /* [DONE] insert link into titleList */
 
-const links = document.querySelectorAll('.titles a');
-console.log(links);
+    const links = document.querySelectorAll('.titles a');
+    console.log(links);
 
-for(let link of links){
-  link.addEventListener('click', titleClickHandler);
+    for(let link of links){
+      link.addEventListener('click', titleClickHandler);
+    }
+  }
 }
-
-}
-}
-
 generateTitleLinks();
-
