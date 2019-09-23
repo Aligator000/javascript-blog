@@ -146,7 +146,7 @@ function generateTags(){
   /* [NEW] START LOOP: for each tag in allTags: */
   for(let tag in allTags){
     /*[NEW] generate cde of a link and add it to allTagsHTML */
-    allTagsHTML += '<li><a href ="' + tag + ' (' + allTags[tag] + ')">' + tag + '</a></li> ';
+    allTagsHTML += '<li><a href ="' + tag + ' (' + allTags[tag] + ')">' + tag + ' (' + allTags[tag] + ')</a></li> ';
     console.log(allTagsHTML);
   }
 
