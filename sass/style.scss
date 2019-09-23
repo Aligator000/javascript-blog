@@ -125,3 +125,44 @@ body {
   }
 }
 
+.tags {
+  .tag-size-1 {
+    font-size: 1em;
+    color: #ef5777;
+    text-decoration: none;
+  }
+}
+
+.tags {
+  .tag-size-2 {
+    font-size: 1.5em;
+    color: pink;
+    text-decoration: none;
+  }
+}
+.tags {
+  .tag-size-3 {
+    font-size: 2em;
+    color:#0be881;
+    text-decoration: none;
+  }
+}
+.tags {
+  .tag-size-4 {
+    font-size: 2.5em;
+    color:red;
+    text-decoration: none;
+  }
+}
+.tags {
+  .tag-size-5 {
+    font-size: 3em;
+    color:#00d8d6;
+    text-decoration: none;
+  }
+}
+  .tags {
+    li {
+      display: inline-block;
+    }
+  }
