@@ -41,6 +41,9 @@ const optTitleSelector = '.post-title'; //h3, title o Aricle, eg. Article 1
 const optTitleListSelector = '.titles'; //ul class, for all links/
 const optArticleTagsSelector = '.post-tags .list'; // list ul with tags
 const optArticleAuthorSelector = 'div .post-author'; //an authors of an article
+const optTagsListSelector = '.tags.list'; //sidebar wih tags names
+const optCloudClassCount = 5;
+const optCloudClassPrefix = 'tag-size-';
 
 function generateTitleLinks(customSelector = ''){
 
@@ -80,13 +83,14 @@ function generateTitleLinks(customSelector = ''){
 generateTitleLinks();
 
 function generateTags(){
+  let allTags = [];
 
   /* [DONE] find all articles */
   const articles = document.querySelectorAll(optArticleSelector);
 
   /* [DONE] START LOOP: for every article: */
   /* [DONE] find tags wrapper */
-  for (let article of articles) {
+  for (let article of articles){
     const tagWrapper = article.querySelector(optArticleTagsSelector);
     //tagWrapper.innerHTML = ' ';
     console.log(tagWrapper);
@@ -107,18 +111,30 @@ function generateTags(){
       console.log(tag);
 
       /* [DONE] generate HTML of the link */
-      const tagLink = '<li><a href="#tag-' + tag + '">'+ tag +'</a></li>';
-      console.log(tagLink);
+      const linkHTML = '<li><a href="#tag-' + tag + '">'+ tag +'</a></li>';
+      console.log(linkHTML);
 
       /* [DONE] insert HTML of all the links into the tags wrapper */
       /* [DONE] add generated code to html variable */
       //tagWrapper.insertAdjacentHTML('beforeend', tagLink);
-      innerHTML = innerHTML + tagLink;
+      innerHTML = innerHTML + linkHTML;
+
+      /* [NEW] check if this link is NOT already in allTags */
+      if(allTags.indexOf(linkHTML) == -1){
+        /* [NEW] add generated code to allTags array */
+        allTags.push(linkHTML);
+      }
       /* [DONE] END LOOP: for each tag */
     }
-    tagWrapper.innerHTML = innerHTML;
-    /* [DONE] END LOOP: for every article: */
   }
+  //tagWrapper.innerHTML = innerHTML;
+  /* [DONE] END LOOP: for every article: */
+
+  /* [NEW] find list of tags in right column */
+  const tagList = document.querySelector('.tags');
+
+  /* [NEW] add html from allTags to tagList */
+  tagList.innerHTML = allTags.join(' ');
 
 }
 generateTags();
@@ -262,4 +278,3 @@ function addClickListenersToAuthors(){
   }
 }
 addClickListenersToAuthors();
-
