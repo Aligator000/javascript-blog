@@ -1,8 +1,11 @@
 'use strict';
 const templates = {
+  /*eslint-disable */
   articleLink: Handlebars.compile(document.querySelector('#template-article-link').innerHTML),
+  /*eslint-disable */
   tagCloudLink: Handlebars.compile(document.querySelector('#template-cloud-tag').innerHTML),
-  authorCloudLink: Handlebars.compile(document.querySelector('#template-cloud-author').innerHTML),
+  /*eslint-disable */
+  authorCloudLink: Handlebars.compile(document.querySelector('#template-cloud-author').innerHTML)
 };
 
 function titleClickHandler(event) {
@@ -43,13 +46,17 @@ function titleClickHandler(event) {
 
 const optArticleSelector = '.post'; //article class, for whole article
 const optTitleSelector = '.post-title'; //h3, title o Aricle, eg. Article 1
+/*eslint-disable */
 const optTitleListSelector = '.titles'; //ul class, for all links/
 const optArticleTagsSelector = '.post-tags .list'; // list ul with tags
 const optArticleAuthorSelector = 'div .post-author'; //an authors of an article
 const optTagsListSelector = '.tags.list'; //sidebar wih tags names
+/*eslint-disable */
 const optCloudClassCount = 5;
 const optCloudClassPrefix  = 'tag-size-';
+/*eslint-disable */
 const optAuthorListSelector = '.authors';
+/*eslint-disable */
 const optAuthorCloudClassPrefix  = 'author-size-';
 
 function generateTitleLinks(customSelector = ''){
@@ -155,6 +162,7 @@ function generateTags(){
       // innerHTML = innerHTML + taglinkHTML;
 
       /* [NEW] check if this link is NOT already in allTags */
+      /*eslint-disable */
       if(!allTags.hasOwnProperty(tag)){
         /* [NEW] add generated code to allTags array */
         allTags[tag] = 1;
@@ -309,6 +317,7 @@ function generateAuthors(){
     //innerHTML = innerHTML + authorLink;
 
     /* [NEW] check if this link is NOT already in allAuthors */
+    /*eslint-disable */
     if(!allAuthors.hasOwnProperty(articleAuthor)){
     /* [NEW] add generated code to allAuthors array */
       allAuthors[articleAuthor] =1;
